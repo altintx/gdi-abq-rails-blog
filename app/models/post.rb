@@ -3,7 +3,7 @@ class Post < ApplicationRecord
   has_many :comments
 
   after_create do
-    self.slug = self.id + '-' + self.title.parameterize
+    self.slug = self.id.to_s + '-' + self.title.parameterize
     self.save
   end
 
